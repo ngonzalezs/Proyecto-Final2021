@@ -11,9 +11,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import com.example.demo.service.UserDetailsServiceImpl;
 
-
-
-
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
@@ -30,12 +27,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
             .authorizeRequests()
 	        .antMatchers(resources).permitAll()  
 	        .antMatchers("/","/index","/nuevoUser").permitAll()
-	        .antMatchers("/admin*").access("hasRole('ADMIN')")
-	        .antMatchers("/user*").access("hasRole('USER') or hasRole('ADMIN')")
+	        .antMatchers("/admin/*").access("hasRole('ADMIN')")
+	        .antMatchers("/user/*").access("hasRole('USER')")
                 .anyRequest().authenticated()
                 .and()
             .formLogin()
-                .loginPage("/login")
                 .permitAll()
                 .defaultSuccessUrl("/menu")
                 .failureUrl("/login?error=true")
@@ -44,7 +40,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
                 .and()
             .logout()
                 .permitAll()
-                .logoutSuccessUrl("/login?logout");
+                .logoutSuccessUrl("/login");
     }
     BCryptPasswordEncoder bCryptPasswordEncoder;
     //Crea el encriptador de contraseñas	
