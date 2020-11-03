@@ -6,6 +6,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
+import com.example.demo.entitySecurity.User;
+
 @Entity
 public class Peticion {
 	@Id()
@@ -13,7 +15,7 @@ public class Peticion {
 	private float id;
 	
 	@OneToOne
-	private Persona duenio;
+	private User usuario;
 	@OneToOne
 	private Animal animal;
 	
@@ -21,10 +23,10 @@ public class Peticion {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Peticion(float id, Persona duenio, Animal animal) {
+	public Peticion(float id, User usuario, Animal animal) {
 		super();
 		this.id = id;
-		this.duenio = duenio;
+		this.usuario = usuario;
 		this.animal = animal;
 	}
 
@@ -36,12 +38,12 @@ public class Peticion {
 		this.id = id;
 	}
 
-	public Persona getDuenio() {
-		return duenio;
+	public User getUsuario() {
+		return usuario;
 	}
 
-	public void setDuenio(Persona duenio) {
-		this.duenio = duenio;
+	public void setUsuario(User usuario) {
+		this.usuario = usuario;
 	}
 
 	public Animal getAnimal() {
@@ -51,5 +53,7 @@ public class Peticion {
 	public void setAnimal(Animal animal) {
 		this.animal = animal;
 	}
+
+	
 
 }

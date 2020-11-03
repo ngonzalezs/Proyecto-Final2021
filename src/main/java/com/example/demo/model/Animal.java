@@ -8,36 +8,40 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
+import org.hibernate.annotations.CollectionType;
+
+import com.example.demo.entitySecurity.User;
+
 @Entity
 public class Animal {
 	@Id()
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private float id;
+	private long id;
 	private String nombre;
 	private String tipo;
 	private int edad;
 	
 	@OneToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-	private Persona duenio;
+	private User usuario;
 
-	public Animal(float id, String nombre, String tipo, int edad, Persona duenio) {
+	public Animal() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Animal(long id, String nombre, String tipo, int edad, User usuario) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
 		this.tipo = tipo;
 		this.edad = edad;
-		this.duenio = duenio;
-	}
-	
-	public Animal() {
-		// TODO Auto-generated constructor stub
+		this.usuario = usuario;
 	}
 
-	public float getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(float id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
@@ -65,12 +69,13 @@ public class Animal {
 		this.edad = edad;
 	}
 
-	public Persona getDuenio() {
-		return duenio;
+	public User getUsuario() {
+		return usuario;
 	}
 
-	public void setDuenio(Persona duenio) {
-		this.duenio = duenio;
+	public void setUsuario(User usuario) {
+		this.usuario = usuario;
 	}
+	
 	
 }

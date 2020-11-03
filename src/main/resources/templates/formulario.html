@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+	integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+	integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+	crossorigin="anonymous"></script>
+<script
+	src="https://maxcd.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+	integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+	crossorigin="anonymous"></script>
+<link rel="stylesheet" th:href="@{/css/estilos.css}">
+<meta charset="UTF-8">
+<title>Document</title>
+</head>
+
+<body>
+	<div class="container">
+		<h1>Formulario nuevo animal</h1>
+		<form action="#" method="post" th:action="@{/admin/guardar}" th:object="${animal}">		
+			<div class="form-group d-none">
+				<label for="id">ID</label> <input  th:field="*{id}" th:value="${id}"
+					type="text" class="form-control" id="id"
+					aria-describedby="id" placeholder="ID"> <small
+					id="id" class="form-text text-muted">ID del Animal.</small>
+			</div>
+			<div class="form-group">
+				<label for="nombre">Nombre</label> <input th:field="*{nombre}" th:value="${nombre}"
+					type="text" class="form-control" id="nombre"
+					aria-describedby="id" placeholder="Nombre"> <small
+					id="nombre" class="form-text text-muted">Nombre del Animal.</small>
+			</div>
+			<div class="form-group">
+				<label for="edad">Edad</label> <input th:field="*{edad}" th:value="${edad}"
+					type="text" class="form-control" id="edad"
+					aria-describedby="id" placeholder="Edad"> <small
+					id="edad" class="form-text text-muted">Edad del Animal.</small>
+			</div>
+			<div class="form-group">
+				<label for="tipo">Tipo</label> <input th:field="*{tipo}" th:value="${tipo}"
+					type="text" class="form-control" id="tipo"
+					aria-describedby="tipo" placeholder="tipo"> <small
+					id="tipo" class="form-text text-muted">ID del animal.</small>
+			</div>
+		
+			<button type="submit" class="btn btn-primary">Submit</button>
+		</form>
+	</div>
+</body>
+
+</html>

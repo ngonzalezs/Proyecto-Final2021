@@ -33,7 +33,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
                 .and()
             .formLogin()
                 .permitAll()
-                .defaultSuccessUrl("/menu")
+                .defaultSuccessUrl("/iniciar")
                 .failureUrl("/login?error=true")
                 .usernameParameter("username")
                 .passwordParameter("password")
